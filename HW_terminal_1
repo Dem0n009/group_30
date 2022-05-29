@@ -1,0 +1,145 @@
+1) Посмотреть где я
+____________________
+[user@comp QA_group_30]$ pwd
+/home/user/QA_group_30
+
+2) Создать папку
+____________________
+[user@comp QA_group_30]$ ls
+new_file.js  QA_group_30_test
+[user@comp QA_group_30]$ mkdir my_folder
+[user@comp QA_group_30]$ ls
+my_folder  new_file.js  QA_group_30_test
+
+3) Зайти в папку
+____________________
+[user@comp QA_group_30]$ cd my_folder
+[user@comp my_folder]$ ls
+
+4) Создать 3 папки
+____________________
+[user@comp my_folder]$ mkdir my_folder my_folder1 my_folder2
+[user@comp my_folder]$ ls
+my_folder  my_folder1  my_folder2
+
+5) Зайти в любую папку
+____________________
+[user@comp my_folder]$ cd my_folder1
+[user@comp my_folder1]$ 
+
+6) Создать 5 файлов (3 txt, 2 json)
+____________________
+[user@comp my_folder1]$ touch file.txt file1.txt file2.txt file.json file1.json
+[user@comp my_folder1]$ ls
+file1.json  file1.txt  file2.txt  file.json  file.txt
+
+7) Создать 3 папки
+____________________
+[user@comp my_folder1]$ mkdir my_folder my_folder1 my_folder2
+[user@comp my_folder1]$ ls
+file1.json  file2.txt  file.txt   my_folder1
+file1.txt   file.json  my_folder  my_folder2
+
+8. Вывести список содержимого папки
+____________________
+[user@comp my_folder1]$ ls
+file1.json  file2.txt  file.txt   my_folder1
+file1.txt   file.json  my_folder  my_folder2
+
+9) + Открыть любой txt файл
+____________________
+[user@comp my_folder1]$ nano file.txt
+
+10) + написать туда что-нибудь, любой текст. Прилагаю скрин HW_10.png
+____________________
+  GNU nano 6.3                         file.txt                          Изменён  
+Любой текст для проверяющего эту домашнюю работу
+
+11) + сохранить и выйти.
+____________________
+Для записи в файл hot key - Ctrl + O, Enter. Для выхода из редактора Ctrl + X
+
+12) Выйти из папки на уровень выше
+____________________
+[user@comp my_folder1]$ cd ..
+[user@comp my_folder]$ ls
+my_folder  my_folder1  my_folder2
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+____________________
+[user@comp my_folder1]$ mv file.txt file1.txt my_folder2
+[user@comp my_folder1]$ cd my_folder2
+[user@comp my_folder2]$ ls
+file1.txt  file.txt
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+____________________
+[user@comp my_folder2]$ cp file1.txt file.txt /home/user/QA_group_30/my_folder/my_folder
+
+15) Найти файл по имени
+____________________
+[user@comp my_folder]$ find . -name file.txt
+./my_folder/file.txt
+./my_folder1/my_folder2/file.txt
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
+____________________
+Я не совсем понял данное задание если отслеживать изменения в файле например, то можно сделать так: 
+[comp my_folder1]# tail -F -n2 file2.txt
+причем здесь команда grep? Может я не в ту сторону копал? На сколько занаю grep, 
+это больше для поиска по определенным параметрам
+
+
+17) вывести несколько первых строк из текстового файла
+____________________
+[user@comp my_folder1]$ head -n 2 file2.txt
+Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. 
+Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. 
+
+18) вывести несколько последних строк из текстового файла
+____________________
+[user@comp my_folder1]$ tail -n 2 file2.txt
+Не послушавшись рукописи, наш текст продолжил свой путь. 
+Вскоре ему повстречался коварный составитель.
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+____________________
+[user@comp my_folder1]$ less file2.txt
+
+[2]+  Остановлен    less file2.txt
+
+20) вывести дату и время
+____________________
+[user@comp my_folder1]$ date
+Вс 29 мая 2022 17:32:43 +05
+
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request
+____________________
+[user@comp my_folder]$ curl http://162.55.220.72:5005/terminal-hw-request
+{
+  "Intro": "Hello!! This is your the first response from server", 
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)", 
+    "result": [
+      "Your_String", 
+      "Your_number"
+    ]
+  }
+}
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+____________________
+Создаем файл например myscript.sh. Меняем ему права на исполнение myscript.sh и запускаем командой  ./myscript.sh
+
+#!/usr/bin/bash
+
+cd my_folder
+mkdir my_folder my_folder1 my_folder2
+cd my_folder1
+touch file.txt file1.txt file2.txt file.json file1.json
+mkdir my_folder my_folder1 my_folder2
+ls
+mv file.txt file1.txt my_folder2
