@@ -1,0 +1,301 @@
+ 1. Сделать папку dir_1
+_________________________
+[user@comp my_folder]$ mkdir dir_1
+[user@comp my_folder]$ ls
+dir_1
+
+ 2. Зайти в папку dir_1
+ _________________________
+[user@comp my_folder]$ cd dir_1
+[user@comp dir_1]$ 
+
+ 3. Создать папку inner_dir_1
+ _________________________
+[user@comp dir_1]$ mkdir inner_dir_1
+[user@comp dir_1]$ ls
+inner_dir_1
+
+ 4. Посмотреть где ты находишься
+ _________________________
+[user@comp dir_1]$ pwd
+/home/user/QA_group_30/my_folder/dir_1
+
+ 5. Находясь в папке dir_1 создать пустой текстовый файл tf_1.txt
+ _________________________
+[user@comp dir_1]$ touch tf_1.txt
+[user@comp dir_1]$ ls
+inner_dir_1  tf_1.txt
+
+ 6. Находясь в папке dir_1 через команду cat создать текстовый файл tf_2.txt со следующими строками:
+- the first 1
+- the second 2
+- the third 3
+_________________________
+[user@comp dir_1]$ cat >> tf_2.txt
+- the first 1
+- the second 2
+- the third 3
+
+ 7. Зайти в папку inner_dir_1
+ _________________________
+[user@comp dir_1]$ cd inner_dir_1
+
+ 8. Через cat сделать текстовый файл tf_3.txt  c любыми строками
+ _________________________
+[user@comp inner_dir_1]$ cat >> tf_3.txt
+- the first 1
+- the second 2
+
+ 9. Через cat добавить в текстовый файл tf_3.txt строку “the second 2”
+ _________________________
+[user@comp inner_dir_1]$ cat >> tf_3.txt
+the second 2
+
+ 10. Через cat добавить в текстовый файл tf_3.txt строку “the sec 2”
+ _________________________
+[user@comp inner_dir_1]$ cat >> tf_3.txt
+the sec 2
+
+ 11. Через cat добавить в текстовый файл tf_2.txt строку “the sec 3”
+ _________________________
+[user@comp inner_dir_1]$ cd ..
+[user@comp dir_1]$ ls
+inner_dir_1  tf_1.txt  tf_2.txt
+[user@comp dir_1]$ cat >> tf_2.txt
+the sec 3
+
+ 12. Через cat добавить в текстовый файл tf_3.txt строку “the SeCoNd 2”
+ _________________________
+[user@comp inner_dir_1]$ cat >> tf_3.txt
+the SeCoNd 2
+
+ 13. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2”
+ _________________________
+[user@comp inner_dir_1]$ cat >> ../tf_2.txt
+the seConD 2
+
+ 14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
+ _________________________
+ [user@comp inner_dir_1]$ cat >> tf_4.txt
+строка 1
+строка 2
+строка 3
+строка 4
+строка 5
+строка 6
+строка 7
+строка 8
+строка 9
+строка 10
+строка 12
+строка 13
+строка 14
+строка 15
+
+ 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
+ _________________________
+[user@comp inner_dir_1]$ cat >> tF_5.txt
+строка 1
+строка 2
+строка 3
+строка 4
+строка 5
+строка 6
+строка 7
+строка 8
+строка 9
+строка 10
+строка 12
+строка 13
+
+ 16. Вывести список всех файлов в папке.
+ _________________________
+[user@comp inner_dir_1]$ ls -la
+итого 20
+drwxr-xr-x 2 user user 4096 мая 30 14:45 .
+drwxr-xr-x 3 user user 4096 мая 30 14:16 ..
+-rw-r--r-- 1 user user   64 мая 30 14:31 tf_3.txt
+-rw-r--r-- 1 user user  215 мая 30 14:42 tf_4.txt
+-rw-r--r-- 1 user user  183 мая 30 14:44 tF_5.txt
+
+ 17. Выйти из папки inner_dir_1
+ _________________________
+[user@comp inner_dir_1]$ cd ..
+[user@comp dir_1]$ 
+
+ 18. Вывести содержимое файла tf_3.txt в терминал.
+ _________________________
+[user@comp dir_1]$ nl /home/user/QA_group_30/my_folder/dir_1/inner_dir_1/tf_3.txt
+     1	- the first 1
+     2	- the second 2
+     3	the second 2
+     4	the sec 2
+     5	the SeCoNd 2
+
+ 19. Найти путь к файлу tf_4.txt
+ _________________________
+[user@comp dir_1]$ realpath tf_4.txt
+/home/user/QA_group_30/my_folder/dir_1/inner_dir_1/tf_4.txt
+
+ 20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
+ _________________________
+[user@comp dir_1]$ echo -n > /home/user/QA_group_30/my_folder/dir_1/inner_dir_1/tf_4.txt
+
+ 21. Найти путь к файлам у которых есть  “tf” в названии.
+ _________________________
+[user@comp dir_1]$ find . -name 'tf*'
+./tf_1.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tf_3.txt
+./tf_2.txt
+
+ 22. Найти путь к файлам у которых есть  “tf” в названии и буквы в любом регистре.
+ _________________________
+ [user@comp dir_1]$ find . -iname 'tf*'
+./tf_1.txt
+./inner_dir_1/tF_5.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tf_3.txt
+./tf_2.txt
+
+
+ 23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке
+ _________________________
+[user@comp dir_1]$ grep 'sec' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:- the second 2
+./tf_2.txt:the sec 3
+
+ 24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -i 'sec' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:- the second 2
+./tf_2.txt:the sec 3
+./tf_2.txt:the seConD 2
+./tf_2.txt:the seConD 2
+
+ 25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -w 'sec' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:the sec 3
+
+ 26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -iw 'sec' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:the sec 3
+
+
+ 27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -w 'second' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:- the second 2
+
+ 28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -iw 'second' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt:- the second 2
+./tf_2.txt:the seConD 2
+./tf_2.txt:the seConD 2
+
+
+ 29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
+ _________________________
+[user@comp dir_1]$ grep -iR 'second' 
+inner_dir_1/tf_3.txt:- the second 2
+inner_dir_1/tf_3.txt:the second 2
+inner_dir_1/tf_3.txt:the SeCoNd 2
+tf_2.txt:- the second 2
+tf_2.txt:the seConD 2
+tf_2.txt:the seConD 2
+
+
+
+ 30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
+ _________________________
+[user@comp dir_1]$ grep -l 'second' ./*
+grep: ./inner_dir_1: Это каталог
+./tf_2.txt
+
+ 31. Найти все строки во всех файлах где нет комбинации “second”
+ _________________________
+[user@comp dir_1]$ grep -iR -v 'second' 
+inner_dir_1/tF_5.txt:строка 1
+inner_dir_1/tF_5.txt:строка 2
+inner_dir_1/tF_5.txt:строка 3
+inner_dir_1/tF_5.txt:строка 4
+inner_dir_1/tF_5.txt:строка 5
+inner_dir_1/tF_5.txt:строка 6
+inner_dir_1/tF_5.txt:строка 7
+inner_dir_1/tF_5.txt:строка 8
+inner_dir_1/tF_5.txt:строка 9
+inner_dir_1/tF_5.txt:строка 10
+inner_dir_1/tF_5.txt:строка 12
+inner_dir_1/tF_5.txt:строка 13
+inner_dir_1/tf_3.txt:- the first 1
+inner_dir_1/tf_3.txt:the sec 2
+tf_2.txt:- the first 1
+tf_2.txt:- the third 3
+tf_2.txt:the sec 3
+
+ 32. Найти только название и путь к файлам где нет комбинации “second”
+ _________________________
+[user@comp dir_1]$ grep -lR -v 'second' 
+inner_dir_1/tF_5.txt
+inner_dir_1/tf_3.txt
+tf_2.txt
+
+ 33. Вывести в терминал 4 последних строк любого текстового файла
+ _________________________
+[user@comp dir_1]$ tail -n4 tf_2.txt
+- the third 3
+the sec 3
+the seConD 2
+the seConD 2
+
+ 34. Вывести в терминал 4 первые строки любого текстового файла.
+ _________________________
+[user@comp dir_1]$ tail -n4 tf_2.txt
+- the third 3
+the sec 3
+the seConD 2
+the seConD 2
+
+ 35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.
+ _________________________
+[user@comp dir_1]$ mkdir myfolder5 && cd myfolder5 && cat >> text_file.txt
+Белый и пушистый кролик бежал по полю
+[user@comp myfolder5]$ ls
+text_file.txt
+
+ 36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
+ _________________________
+[user@comp dir_1]$ grep -lr 'sec' | xargs mv -t myfolder5
+
+ 37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
+ _________________________
+[user@comp dir_1]$ ls inner_dir_1/
+tf_4.txt  tF_5.txt
+[user@comp dir_1]$ grep -lr 'sec' | xargs cp -t inner_dir_1
+[user@comp dir_1]$ ls inner_dir_1/
+tf_2.txt  tf_3.txt  tf_4.txt  tF_5.txt
+
+ 38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
+ _________________________
+ [user@comp dir_1]$ grep -r sec | xargs echo > newfile.txt
+
+ 39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”
+ _________________________
+[user@comp dir_1]$ grep -rl 'sec' | xargs rm -R
+
+ 40. Просто вывести в терминал строку “Good job!!”
+ _________________________
+[user@comp ~]$ echo -e '"Good job!!"'
+"Good job!!"
+
+
+
