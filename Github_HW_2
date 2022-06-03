@@ -1,0 +1,70 @@
+1. На локальном репозитории сделать ветки для:
+- Postman
+_____________________
+[user@comp group_30]$ git checkout -b Postman
+[user@comp group_30]$ git branch 
+* Postman
+  main
+
+- Jmeter
+_____________________
+[user@comp group_30]$ git checkout -b Jmeter
+Переключено на новую ветку «Jmeter»
+[user@comp group_30]$ git branch 
+* Jmeter
+  Postman
+  main
+
+- CheckLists
+_____________________
+[user@comp group_30]$ git checkout -b CheckLists
+
+- Bag Reports
+_____________________
+[user@comp group_30]$ git checkout -b Bag_Reports
+
+- SQL
+_____________________
+[user@comp group_30]$ git checkout -b SQL
+
+- Charles
+_____________________
+[user@comp group_30]$ git checkout -b Charles
+
+- Mobile testing
+_____________________
+[user@comp group_30]$ git checkout -b Mobile_testing
+
+2. Запушить все ветки на внешний репозиторий
+_____________________
+[user@comp group_30]$ git push -u origin Postman Jmeter CheckLists
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+To github.com:Dem0n009/group_30.git
+ * [new branch]      Postman -> Postman
+ * [new branch]      Jmeter -> Jmeter
+ * [new branch]      CheckLists -> CheckLists
+branch 'Postman' set up to track 'origin/Postman'.
+branch 'Jmeter' set up to track 'origin/Jmeter'.
+branch 'CheckLists' set up to track 'origin/CheckLists'.
+[user@comp group_30]$ git push -u origin Bag_Reports SQL Charles Mobile_testing
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+To github.com:Dem0n009/group_30.git
+ * [new branch]      Bag_Reports -> Bag_Reports
+ * [new branch]      SQL -> SQL
+ * [new branch]      Charles -> Charles
+ * [new branch]      Mobile_testing -> Mobile_testing
+branch 'Bag_Reports' set up to track 'origin/Bag_Reports'.
+branch 'SQL' set up to track 'origin/SQL'.
+branch 'Charles' set up to track 'origin/Charles'.
+branch 'Mobile_testing' set up to track 'origin/Mobile_testing'.
+[user@comp group_30]$ 
+
+3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта
+
+4. Запушить структуру багрепорта на внешний репозиторий
+5. Вмержить ветку Bag Reports в Main
+6. Запушить main на внешний репозиторий.
+7. В ветке CheckLists набросать структуру чек листа.
+8. Запушить структуру на внешний репозиторий
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+10. Синхронизировать Внешнюю и Локальную ветки Main
