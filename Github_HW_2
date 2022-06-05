@@ -1,39 +1,31 @@
 1. На локальном репозитории сделать ветки для:
 - Postman
 _____________________
-[user@comp group_30]$ git checkout -b Postman
-[user@comp group_30]$ git branch 
-* Postman
-  main
+[user@comp group_30]$ git branch Postman
 
 - Jmeter
 _____________________
-[user@comp group_30]$ git checkout -b Jmeter
-Переключено на новую ветку «Jmeter»
-[user@comp group_30]$ git branch 
-* Jmeter
-  Postman
-  main
+[user@comp group_30]$ git branch Jmeter
 
 - CheckLists
 _____________________
-[user@comp group_30]$ git checkout -b CheckLists
+[user@comp group_30]$ git branch -b CheckLists
 
 - Bag Reports
 _____________________
-[user@comp group_30]$ git checkout -b Bag_Reports
+[user@comp group_30]$ git branch -b Bag_Reports
 
 - SQL
 _____________________
-[user@comp group_30]$ git checkout -b SQL
+[user@comp group_30]$ git branch -b SQL
 
 - Charles
 _____________________
-[user@comp group_30]$ git checkout -b Charles
+[user@comp group_30]$ git branch -b Charles
 
 - Mobile testing
 _____________________
-[user@comp group_30]$ git checkout -b Mobile_testing
+[user@comp group_30]$ git branch Mobile_testing
 
 2. Запушить все ветки на внешний репозиторий
 _____________________
