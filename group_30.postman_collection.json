@@ -158,7 +158,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_1?age=55&name=Vasily&salary=3000",
+					"raw": "http://162.55.220.72:5005/object_info_3?age=55&name=Vasily&salary=3000",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -168,7 +168,7 @@
 					],
 					"port": "5005",
 					"path": [
-						"object_info_1"
+						"object_info_3"
 					],
 					"query": [
 						{
